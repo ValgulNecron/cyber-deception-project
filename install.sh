@@ -17,7 +17,7 @@ case $response in
     read response
     case $response in
     yes)
-
+      ./scripts/launch_docker.sh
       ;;
     no)
       # Cancel installation

@@ -9,6 +9,28 @@ services:
     environment:
       - FLASK_ENV=development
     ports:
-      - 5000:5000
+      - "5000:5000"
     volumes:
       - ./honeypot/OWASP:/OWASP-Honey
+    networks:
+      main:
+        ipv4_address: 172.20.0.7
+
+  cowrie:
+    restart: always
+    build:
+      context: context
+      dockerfile: Dockerfile
+    ports:
+      - "2222:2222"
+      - "2223:2223"
+    volumes:
+      - ./honeypot/cowrie-etc:/cowrie/cowrie-git/etc
+      - ./honeypot/cowrie-var:/cowrie/cowrie-git/var
+    networks:
+      main:
+        ipv4_address: 172.20.0.8
+
+networks:
+  main:
+    external: true
