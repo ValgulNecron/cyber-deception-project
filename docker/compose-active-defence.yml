@@ -1,0 +1,22 @@
+version: '3'
+services:
+  portspoof:
+    build:
+      context: ./DockerFile/portspoof
+      dockerfile: Dockerfile
+    container_name: portspoof
+    restart: unless-stopped
+    networks:
+      main:
+        ipv4_address: 172.20.0.6
+    ports:
+      # please change this while still having 9090, 9443, 2305, 3000, 9100 and your used port not in the list. 65535
+      - "1-21:1-21"
+      - "23-2304:23-2304"
+      - "2306-2999:2306-2999"
+      - "3001-9089:3001-9089"
+      - "1-21:1-21"
+
+networks:
+  main:
+    external: true

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # This script installs Docker
 
 echo "Updating package list..."

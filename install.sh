@@ -3,6 +3,7 @@
 # this is the main script
 # it will execute other script and do some verification.
 
+echo "This script assume you already have a 'good' configuration on your server like ssh port changed and other stuff"
 
 echo "Do you want to proceed with the installation of Docker (yes/no)?:"
 read response
