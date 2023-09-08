@@ -18,9 +18,7 @@ services:
 
   cowrie:
     restart: always
-    build:
-      context: context
-      dockerfile: Dockerfile
+    image: cowrie/cowrie
     ports:
       - "2222:2222"
       - "2223:2223"
