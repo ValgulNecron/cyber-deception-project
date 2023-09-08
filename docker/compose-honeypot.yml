@@ -9,6 +9,9 @@ services:
     networks:
       main:
         ipv4_address: 172.20.0.8
+    ports:
+      - "8080:8080"
+
 networks:
   main:
     external: true
