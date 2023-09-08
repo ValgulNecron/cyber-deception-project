@@ -1,7 +1,7 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
 
 RUN apt-get update \
- && apt-get install -y build-essential libssl-dev libffi-dev pkg-config git sudo iptables \
+ && apt-get install -y build-essential libssl-dev libffi-dev pkg-config git sudo \
  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
