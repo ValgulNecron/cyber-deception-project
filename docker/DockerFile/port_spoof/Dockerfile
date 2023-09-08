@@ -14,6 +14,6 @@ RUN git clone https://github.com/drk1wi/portspoof.git \
  && make \
  && sudo make install
 
-RUN iptables -t nat -I PREROUTING -p tcp -d 192.168.1.0/24 --dport 1:65535 -j DNAT --to-destination 127.0.0.1:4444
+RUN iptables -t nat -I OUTPUT  -p tcp --dport 1:65535 -j DNAT --to-destination 127.0.0.1:4444
 
 CMD ["/usr/local/bin/portspoof", "-s /usr/local/etc/portspoof_signatures"]
