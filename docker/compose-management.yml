@@ -48,6 +48,8 @@ services:
       - ./management/grafana_data:/var/lib/grafana
     expose:
       - "3000"
+    ports:
+      - "3000:3000"
     networks:
       main:
         ipv4_address: 172.20.0.4
