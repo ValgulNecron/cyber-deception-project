@@ -7,7 +7,7 @@ RUN apt-get update \
 
 RUN git clone https://github.com/yunginnanet/HellPot.git
 
-WORKDIR HellPot
+WORKDIR /go/src/app/HellPot
 
 RUN go mod download
 
@@ -23,7 +23,7 @@ RUN \
 
 FROM gcr.io/distroless/static-debian11
 
-COPY --from=build /HellPot/go/src/app/HellPot /app
-COPY --from=build /HellPot//go/src/app/docker_config.toml /config
+COPY --from=build /go/src/app/HellPot/HellPot /app
+COPY --from=build /go/src/app/HellPot/docker_config.toml /config
 EXPOSE 8080
 ENTRYPOINT ["/app", "-c", "/config"]
