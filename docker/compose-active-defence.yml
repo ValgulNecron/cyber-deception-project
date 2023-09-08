@@ -1,10 +1,10 @@
 version: '3'
 services:
-  portspoof:
+  port_spoof:
     build:
-      context: ./DockerFile/portspoof
+      context: DockerFile/port_spoof
       dockerfile: Dockerfile
-    container_name: portspoof
+    container_name: port_spoof
     restart: unless-stopped
     networks:
       main:

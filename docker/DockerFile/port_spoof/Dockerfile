@@ -6,8 +6,6 @@ RUN apt-get update \
 
 WORKDIR /app
 
-COPY . /app
-
 RUN git clone https://github.com/drk1wi/portspoof.git \
  && cd portspoof \
  && ./configure --prefix=/usr/local \
