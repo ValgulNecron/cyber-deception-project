@@ -12,7 +12,7 @@ RUN git clone https://github.com/drk1wi/portspoof.git \
  && cd portspoof \
  && ./configure --prefix=/usr/local \
  && make \
- && make install \
+ && make install
 
 USER root
 
