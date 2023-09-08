@@ -16,6 +16,4 @@ RUN git clone https://github.com/drk1wi/portspoof.git \
 
 RUN iptables -t nat -A PREROUTING -p tcp -m tcp --dport 1:65535 -j REDIRECT --to-ports 4444
 
-
-EXPOSE *
 CMD ["/usr/local/bin/portspoof", "-s /usr/local/etc/portspoof_signatures"]
