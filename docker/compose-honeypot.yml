@@ -16,6 +16,41 @@ services:
     networks:
       main:
         ipv4_address: 172.20.0.7
+    links:
+      - elasticsearch
+    depends_on:
+      - elasticsearch
+
+  grafana:
+    image: grafana/grafana:latest-ubuntu
+    container_name: "grafana"
+    volumes:
+      - ./data/grafana:/var/lib/grafana:Z
+    expose:
+      - 3000
+    links:
+      - elasticsearch
+    depends_on:
+      - elasticsearch
+    networks:
+      main:
+        ipv4_address: 172.20.0.13
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.3
+    container_name: "elasticsearch"
+    environment:
+      - "ES_JAVA_OPTS=-Xms4096m -Xmx4096m"
+      - discovery.type=single-node
+      - xpack.security.enabled=false # note: you must secure your elasticsearch otherwise everyone can access it
+      # you also need to add the credentials to config.py
+    expose:
+      - 9200
+    volumes:
+      - ./data/db:/usr/share/elasticsearch/data:Z
+    networks:
+      main:
+        ipv4_address: 172.20.0.12
 
   # cowrie:
   #  restart: always
