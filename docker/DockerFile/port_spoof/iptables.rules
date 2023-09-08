@@ -1,0 +1,8 @@
+# iptables.rules
+*nat
+:PREROUTING ACCEPT [0:0]
+:INPUT ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:POSTROUTING ACCEPT [0:0]
+-A OUTPUT -p tcp --dport 1:65535 -j DNAT --to-destination 127.0.0.1:4444
+COMMIT
