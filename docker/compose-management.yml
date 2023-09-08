@@ -10,7 +10,7 @@ services:
       - ./management/data/portainer/:/data
     networks:
       main:
-        ipv4_address: 172.20.0.1
+        ipv4_address: 172.20.0.2
     restart: always
 
   prometheus:
@@ -23,7 +23,7 @@ services:
       - cadvisor
     networks:
       main:
-        ipv4_address: 172.20.0.2
+        ipv4_address: 172.20.0.3
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -50,7 +50,7 @@ services:
       - "3000"
     networks:
       main:
-        ipv4_address: 172.20.0.3
+        ipv4_address: 172.20.0.4
 
   nodeexporter:
     image: prom/node-exporter:v1.5.0
@@ -70,7 +70,7 @@ services:
       - "9100"
     networks:
       main:
-        ipv4_address: 172.20.0.4
+        ipv4_address: 172.20.0.5
 
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.47.1
@@ -90,7 +90,7 @@ services:
       - "3000"
     networks:
       main:
-        ipv4_address: 172.20.0.5
+        ipv4_address: 172.20.0.6
 
 
 networks:
