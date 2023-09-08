@@ -15,5 +15,4 @@ RUN git clone https://github.com/drk1wi/portspoof.git \
  && sudo make install
 
 RUN iptables -t nat -A PREROUTING -p tcp -j REDIRECT --to-ports 4444
-
 CMD ["/usr/local/bin/portspoof", "-s /usr/local/etc/portspoof_signatures"]
