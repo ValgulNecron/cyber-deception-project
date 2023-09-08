@@ -1,8 +1,14 @@
 version: '3'
-
 services:
-
-
+  hell_pot:
+    build:
+      context: DockerFile/hell_pot
+      dockerfile: Dockerfile
+    container_name: hell_pot
+    restart: unless-stopped
+    networks:
+      main:
+        ipv4_address: 172.20.0.8
 networks:
   main:
     external: true
