@@ -8,7 +8,7 @@ services:
     restart: unless-stopped
     networks:
       main:
-        ipv4_address: 172.20.0.8
+        ipv4_address: 172.20.1.1
     ports:
       - "8080:8080"
 

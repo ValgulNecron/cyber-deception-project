@@ -34,7 +34,7 @@ services:
       - net.ipv4.conf.all.src_valid_mark=1
     networks:
       main:
-        ipv4_address: 172.20.0.10
+        ipv4_address: 172.20.3.1
 
   vaultwarden:
     image: vaultwarden/server:latest
@@ -48,7 +48,7 @@ services:
       - "80:80"
     networks:
       main:
-        ipv4_address: 172.20.0.11
+        ipv4_address: 172.20.3.2
 
 networks:
   main:
