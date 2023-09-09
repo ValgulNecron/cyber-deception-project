@@ -14,8 +14,9 @@ RUN git clone https://github.com/drk1wi/portspoof.git \
  && make \
  && make install
 
-COPY iptables.rules /iptables.rules
-
 USER root
 
-CMD iptables-restore < /iptables.rules && /usr/local/bin/portspoof -s /usr/local/etc/portspoof_signatures
+RUN iptables -t nat -A PREROUTING -p tcp --dport 1:79 -j DNAT --to-destination 127.0.0.1:4444
+
+
+CMD /usr/local/bin/portspoof -s /usr/local/etc/portspoof_signatures
