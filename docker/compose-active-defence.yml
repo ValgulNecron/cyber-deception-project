@@ -9,13 +9,13 @@ services:
     networks:
       main:
         ipv4_address: 172.20.0.2
-    expose:
+    ports:
       # please change this while still having 80, 3000, 8080
       # 9443, 51820, 51821 and your used port not in the list.
       # 65535 last port please adjust so your docker run
       # sometime when i a have too much port it either very slow or simply won't create it.
-      - 1-79
-      - 81-2999
+      - "1-79:1-79"
+      - "81-2999:81-2999"
     privileged: true
 networks:
   main:
