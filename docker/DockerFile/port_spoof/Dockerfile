@@ -17,4 +17,4 @@ RUN git clone https://github.com/drk1wi/portspoof.git \
  && make \
  && make install
 
-CMD /usr/local/bin/portspoof -s /usr/local/etc/portspoof_signatures
+CMD ["/entry.sh"]
