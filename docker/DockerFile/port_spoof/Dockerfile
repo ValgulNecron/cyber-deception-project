@@ -4,6 +4,9 @@ RUN apt-get update \
  && apt-get install -y build-essential libssl-dev libffi-dev pkg-config git iptables \
  && rm -rf /var/lib/apt/lists/*
 
+COPY entry.sh /entry.sh
+RUN chmod +x /entry.sh
+
 WORKDIR /app
 
 COPY . /app
@@ -13,10 +16,5 @@ RUN git clone https://github.com/drk1wi/portspoof.git \
  && ./configure --prefix=/usr/local \
  && make \
  && make install
-
-USER root
-
-RUN iptables -t nat -A PREROUTING -p tcp --dport 1:79 -j DNAT --to-destination 127.0.0.1:4444
-
 
 CMD /usr/local/bin/portspoof -s /usr/local/etc/portspoof_signatures
