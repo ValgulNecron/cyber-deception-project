@@ -16,10 +16,6 @@ services:
       # sometime when i a have too much port it either very slow or simply won't create it.
       - "1-79:1-79"
       - "81-2999:81-2999"
-      - "3001-8079:3001-8079"
-      - "8081-9089:8081-9089"
-      - "9091-9099:9091-9099"
-      - "9101-9442:9101-9442"
     privileged: true
 networks:
   main:
