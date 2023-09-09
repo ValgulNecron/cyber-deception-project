@@ -16,7 +16,7 @@ services:
       # 9443, 51820, 51821 and your used port not in the list.
       # 65535
       - "1-79:1-79"
-
+    privileged: true
 networks:
   main:
     external: true
