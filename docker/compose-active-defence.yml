@@ -9,8 +9,6 @@ services:
     networks:
       main:
         ipv4_address: 172.20.0.7
-    expose:
-      - 1-65535
     ports:
       # please change this while still having 80, 3000, 8080
       # 9443, 51820, 51821 and your used port not in the list.
