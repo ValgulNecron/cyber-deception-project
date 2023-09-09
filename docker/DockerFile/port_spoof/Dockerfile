@@ -14,8 +14,4 @@ RUN git clone https://github.com/drk1wi/portspoof.git \
  && make \
  && make install
 
-COPY iptables.rules /iptables.rules
-
-USER root
-
-CMD iptables-restore < /iptables.rules && /usr/local/bin/portspoof -s /usr/local/etc/portspoof_signatures
+CMD /usr/local/bin/portspoof -s /usr/local/etc/portspoof_signatures
