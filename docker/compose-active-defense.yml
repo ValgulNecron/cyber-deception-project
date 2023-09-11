@@ -13,8 +13,6 @@ services:
       # please change this while still having 80, 3000, 8080
       # 9443, 51820, 51821 and your used port not in the list.
       # 65535 last port please adjust so your docker run it can freeze sometime when creating
-      - "1-79:1-79"
-      - "81-2999:81-2999"
       - "3001-8079:3001-8079"
       - "8081-9089:8081-9089"
       - "9091-9099:9091-9099"
