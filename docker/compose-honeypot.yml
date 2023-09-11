@@ -13,7 +13,7 @@ services:
       - "8080:8080"
   endless_ssh:
     build:
-      context: DockerFile/endless_ssh
+      context: DockerFile/endlessh
       dockerfile: Dockerfile
     container_name: endless_ssh
     restart: unless-stopped
