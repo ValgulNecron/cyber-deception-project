@@ -14,7 +14,7 @@ Other:
   - [vaultwarden](https://github.com/dani-garcia/vaultwarden): A bitwarden server written in rust (Password manage)
   - [wg-easy](https://github.com/wg-easy/wg-easy): a web interface to manage a wireguard vpn server
 active-defense:
-  - [portspoof](https://github.com/drk1wi/portspoof): spoof open port and service
+  - Need to be intalled on the host system
 honeypot:
   - [hellpot](https://github.com/yunginnanet/HellPot): a webserver honey pot
     HellPot is an endless honeypot based on Heffalump that sends unruly HTTP bots to hell.
@@ -25,3 +25,16 @@ honeypot:
 management:
   - Grafana, prometheus, nodeexporter, cadvisor: A set of tool that give you information on your server on a dashboard.
   - Portainer: a docker web management tool
+
+
+# Portspoof installation 
+
+git clone https://github.com/drk1wi/portspoof.git \
+ && cd portspoof \
+ && ./configure --prefix=/usr/local \
+ && make \
+ && make install
+
+iptables -t nat -A PREROUTING -p tcp --dport 1:65535  -j DNAT --to-destination 127.0.0.1:4444 
+please adapt the above command to what you need. 
+don't forget 80, 2222, 3000, 8080, 9443, 51820, 51821 need to be open + your other service and a ssh port

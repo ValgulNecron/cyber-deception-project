@@ -12,7 +12,6 @@ case $response in
     ./scripts/install_docker.sh
     ./scripts/configure_docker.sh
     echo "Switching to the created docker user..."
-    sudo su -l docker
     echo "Do you want to build and launch all docker (yes/no)?:"
     read response
     case $response in
