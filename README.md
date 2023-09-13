@@ -13,6 +13,7 @@ The installation script was done with ubuntu in mind.
 ### Other: 
   - [vaultwarden](https://github.com/dani-garcia/vaultwarden): A bitwarden server written in rust (Password manage)
   - [wg-easy](https://github.com/wg-easy/wg-easy): a web interface to manage a wireguard vpn server
+  - [lodestrone](https://github.com/Lodestone-Team/lodestone): a minecraft server management software
 
 ### Active-defense:
   - Need to be intalled on the host system
