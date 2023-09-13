@@ -16,7 +16,7 @@ The installation script was done with ubuntu in mind.
 
 ### Active-defense:
   - Need to be intalled on the host system
-  - 
+
 ### Honeypot:
   - [hellpot](https://github.com/yunginnanet/HellPot): a webserver honey pot
     HellPot is an endless honeypot based on Heffalump that sends unruly HTTP bots to hell.
