@@ -24,6 +24,41 @@ services:
     ports:
       - "22:2222"
 
+  ddospot:
+    build:
+        context: DockerFile/ddospot
+        dockerfile: Dockerfile
+    image: aelth/simpledns
+    volumes:
+        - ./honeypot/ddospot/bl:/ddospot/bl
+        - ./honeypot/ddospot/db:/ddospot/db
+        - ./honeypot/ddospot/logs:/ddospot/logs
+    ports:
+        - target: 19
+          published: 19
+          protocol: udp
+          mode: host
+        - target: 53
+          published: 54
+          protocol: udp
+          mode: host
+        - target: 123
+          published: 123
+          protocol: udp
+          mode: host
+        - target: 161
+          published: 161
+          protocol: udp
+          mode: host
+        - target: 1900
+          published: 1901
+          protocol: udp
+          mode: host
+    networks:
+        main:
+            ipv4_address: 172.20.1.3
+
+
 networks:
   main:
     external: true
