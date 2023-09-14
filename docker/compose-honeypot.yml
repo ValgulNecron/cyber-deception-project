@@ -24,6 +24,18 @@ services:
     ports:
       - "22:2222"
 
+  dshield:
+    image: dshield/honeypot
+    container_name: dshield
+    ports:
+      - "2222:2222"
+    env_file:
+      - DockerFile/dshield/env.txt
+    restart: unless-stopped
+    networks:
+      main:
+        ipv4_address: 172.20.1.3
+
   ddospot:
     build:
         context: DockerFile/ddospot

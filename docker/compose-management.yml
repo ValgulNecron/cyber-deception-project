@@ -11,7 +11,7 @@ services:
     networks:
       main:
         ipv4_address: 172.20.2.1
-    restart: always
+    restart: unless-stopped
 
   prometheus:
     image: prom/prometheus:v2.42.0
