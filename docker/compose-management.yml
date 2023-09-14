@@ -95,16 +95,16 @@ services:
         ipv4_address: 172.20.2.5
 
   uptime-kuma:
-      image: louislam/uptime-kuma:1
-      container_name: uptime-kuma
-      volumes:
-        - ./management/uptime-kuma:/app/data
-      ports:
-        - "3001:3001"
-      restart: always
-      networks:
-        main:
-          ipv4_address: 172.20.2.6
+    image: louislam/uptime-kuma:1
+    container_name: uptime-kuma
+    volumes:
+      - ./management/uptime-kuma:/app/data
+    ports:
+      - "3001:3001"
+    restart: always
+    networks:
+      main:
+        ipv4_address: 172.20.2.6
 networks:
   main:
     external: true

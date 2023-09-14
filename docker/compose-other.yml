@@ -37,7 +37,7 @@ services:
       main:
         ipv4_address: 172.20.3.1
 
-# A password manager (bitwarden) but self-hosted in rust
+  # A password manager (bitwarden) but self-hosted in rust
   vaultwarden:
     image: vaultwarden/server:latest
     container_name: vaultwarden
@@ -52,7 +52,7 @@ services:
       main:
         ipv4_address: 172.20.3.2
 
-# A minecraft server manager (lodestone)
+  # A minecraft server manager (lodestone)
   lodestone:
     image: ghcr.io/lodestone-team/lodestone_core
     container_name: lodestone
@@ -62,18 +62,18 @@ services:
     volumes:
       - ./lodestone:/home/user/.lodestone
 
-# A CalDav and CardDav server (radicale)
+  # A CalDav and CardDav server (radicale)
   radicale:
-      image: ghcr.io/radicale/radicale:latest
-      container_name: radicale
-      restart: unless-stopped
-      ports:
+    image: ghcr.io/radicale/radicale:latest
+    container_name: radicale
+    restart: unless-stopped
+    ports:
       - "5232:5232"
-      volumes:
+    volumes:
       - ./other/radicale:/data
-      networks:
-        main:
-          ipv4_address: 172.20.3.4
+    networks:
+      main:
+        ipv4_address: 172.20.3.4
 
 networks:
   main:
