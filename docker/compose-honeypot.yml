@@ -11,6 +11,7 @@ services:
         ipv4_address: 172.20.1.1
     ports:
       - "8080:8080"
+
   endless_ssh:
     build:
       context: DockerFile/endlessh
