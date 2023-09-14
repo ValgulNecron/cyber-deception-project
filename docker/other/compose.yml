@@ -74,6 +74,7 @@ services:
     restart: unless-stopped
     ports:
       - "5232:5232"
+      - "15000-15010:15000-15010"
     volumes:
       - ./radicale:/data
     networks:
