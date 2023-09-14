@@ -68,8 +68,8 @@ services:
   # A CalDav and CardDav server (radicale)
   radicale:
     build:
-      context: ../DockerFile/radicale
-      dockerfile: ../DockerFile/radicale/Dockerfile
+      context: ../radicale
+      dockerfile: ../radicale/Dockerfile
     container_name: radicale
     restart: unless-stopped
     ports:

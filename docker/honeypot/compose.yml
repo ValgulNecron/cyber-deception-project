@@ -2,8 +2,8 @@ version: '3'
 services:
   hell_pot:
     build:
-      context: ../DockerFile/hell_pot
-      dockerfile: ../DockerFile/hell_pot/Dockerfile
+      context: ../hell_pot
+      dockerfile: ../hell_pot/Dockerfile
     container_name: hell_pot
     restart: unless-stopped
     networks:
@@ -14,8 +14,8 @@ services:
 
   endless_ssh:
     build:
-      context: ../DockerFile/endlessh
-      dockerfile: ../DockerFile/endlessh/Dockerfile
+      context: ../endlessh
+      dockerfile: ../endlessh/Dockerfile
     container_name: endless_ssh
     restart: unless-stopped
     networks:
@@ -38,8 +38,8 @@ services:
 
   ddospot:
     build:
-        context: ../DockerFile/ddospot
-        dockerfile: ../DockerFile/ddospot/Dockerfile
+        context: ../ddospot
+        dockerfile: ../ddospot/Dockerfile
     image: aelth/simpledns
     volumes:
         - ./ddospot/bl:/ddospot/bl
