@@ -2,8 +2,8 @@ version: '3'
 services:
   hell_pot:
     build:
-      context: DockerFile/hell_pot
-      dockerfile: Dockerfile
+      context: ../DockerFile/hell_pot
+      dockerfile: ../DockerFile/hell_pot/Dockerfile
     container_name: hell_pot
     restart: unless-stopped
     networks:
@@ -14,8 +14,8 @@ services:
 
   endless_ssh:
     build:
-      context: DockerFile/endlessh
-      dockerfile: Dockerfile
+      context: ../DockerFile/endlessh
+      dockerfile: ../DockerFile/endlessh/Dockerfile
     container_name: endless_ssh
     restart: unless-stopped
     networks:
@@ -30,7 +30,7 @@ services:
     ports:
       - "2222:2222"
     env_file:
-      - DockerFile/dshield/env.txt
+      - ../DockerFile/dshield/env.txt
     restart: unless-stopped
     networks:
       main:
@@ -38,14 +38,14 @@ services:
 
   ddospot:
     build:
-        context: DockerFile/ddospot
-        dockerfile: Dockerfile
+        context: ../DockerFile/ddospot
+        dockerfile: ../DockerFile/ddospot/Dockerfile
     image: aelth/simpledns
     volumes:
-        - ./honeypot/ddospot/bl:/ddospot/bl
-        - ./honeypot/ddospot/db:/ddospot/db
-        - ./honeypot/ddospot/logs:/ddospot/logs
-        - ./honeypot/ddospot/pot:/ddospot/pot
+        - ./ddospot/bl:/ddospot/bl
+        - ./ddospot/db:/ddospot/db
+        - ./ddospot/logs:/ddospot/logs
+        - ./ddospot/pot:/ddospot/pot
     ports:
         - target: 19
           published: 19

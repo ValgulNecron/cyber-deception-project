@@ -22,7 +22,7 @@ services:
     image: weejewel/wg-easy
     container_name: wg-easy
     volumes:
-      - ./other/wg-easy:/etc/wireguard
+      - ./wg-easy:/etc/wireguard
     ports:
       - "51820:51820/udp"
       - "51821:51821/tcp"
@@ -48,7 +48,7 @@ services:
       - ADMIN_TOKEN:randomPassword40characters
       - SHOW_PASSWORD_HINT=false
     volumes:
-      - ./other/vw-data:/data/
+      - ./vw-data:/data/
     ports:
       - "80:80"
     networks:
@@ -73,7 +73,7 @@ services:
     ports:
       - "5232:5232"
     volumes:
-      - ./other/radicale:/data
+      - ./radicale:/data
     networks:
       main:
         ipv4_address: 172.20.3.4

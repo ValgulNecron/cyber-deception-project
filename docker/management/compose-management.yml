@@ -7,7 +7,7 @@ services:
       - "9443:9443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./management/data/portainer/:/data
+      - ./data/portainer/:/data
     networks:
       main:
         ipv4_address: 172.20.2.1
@@ -32,8 +32,8 @@ services:
       - '--storage.tsdb.retention.time=240h'
       - '--web.enable-lifecycle'
     volumes:
-      - ./management/prometheus_data:/prometheus
-      - ./management/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus_data:/prometheus
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
     expose:
       - "9090"
 
@@ -45,7 +45,7 @@ services:
     restart: unless-stopped
     env_file: .env-grafana
     volumes:
-      - ./management/grafana_data:/var/lib/grafana
+      - ./grafana_data:/var/lib/grafana
     expose:
       - "3000"
     ports:
@@ -98,7 +98,7 @@ services:
     image: louislam/uptime-kuma:1
     container_name: uptime-kuma
     volumes:
-      - ./management/uptime-kuma:/app/data
+      - ./uptime-kuma:/app/data
     ports:
       - "3001:3001"
     restart: always
