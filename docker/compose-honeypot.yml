@@ -33,6 +33,7 @@ services:
         - ./honeypot/ddospot/bl:/ddospot/bl
         - ./honeypot/ddospot/db:/ddospot/db
         - ./honeypot/ddospot/logs:/ddospot/logs
+        - ./honeypot/ddospot/pot:/ddospot/pot
     ports:
         - target: 19
           published: 19
