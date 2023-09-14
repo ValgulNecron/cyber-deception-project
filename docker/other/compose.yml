@@ -67,7 +67,9 @@ services:
 
   # A CalDav and CardDav server (radicale)
   radicale:
-    image: ghcr.io/radicale/radicale:latest
+    build:
+      context: ../DockerFile/radicale
+      dockerfile: ../DockerFile/radicale/Dockerfile
     container_name: radicale
     restart: unless-stopped
     ports:
