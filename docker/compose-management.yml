@@ -105,6 +105,14 @@ services:
     networks:
       main:
         ipv4_address: 172.20.2.6
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      main:
+        ipv4_address: 172.20.2.7
 networks:
   main:
     external: true

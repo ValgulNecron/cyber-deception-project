@@ -43,7 +43,10 @@ services:
     container_name: vaultwarden
     restart: always
     environment:
-      DOMAIN: "https://vaultwarden.local"  # Your domain; vaultwarden needs to know it's https to work properly with attachments
+      - DOMAIN:"https://vaultwarden.local"  # Your domain; vaultwarden needs to know it's https to work properly with attachments
+      - WEBSOCKET_ENABLED:true
+      - ADMIN_TOKEN:randomPassword40characters
+      - SHOW_PASSWORD_HINT=false
     volumes:
       - ./other/vw-data:/data/
     ports:

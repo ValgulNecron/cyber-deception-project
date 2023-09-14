@@ -17,6 +17,7 @@ The installation script was done with ubuntu in mind.
 - [vaultwarden](https://github.com/dani-garcia/vaultwarden): A bitwarden server written in rust (Password manage)
 - [wg-easy](https://github.com/wg-easy/wg-easy): a web interface to manage a wireguard vpn server
 - [lodestrone](https://github.com/Lodestone-Team/lodestone): a minecraft server management software
+- [radicale](https://github.com/Kozea/Radicale): A CalDAV (calendars, to-do lists) and CardDAV (contacts) server
 
 ### Active-defense:
 
@@ -44,7 +45,7 @@ The installation script was done with ubuntu in mind.
   tool that give you information on your server on a dashboard.
 - [Portainer](https://www.portainer.io/): a docker web management tool
 - [uptime kuma](https://github.com/louislam/uptime-kuma): Uptime Kuma is an easy-to-use self-hosted monitoring tool.
-
+- [Watchtower](https://containrrr.dev/watchtower/): A container-based solution for automating Docker container base image updates.
 
 # Portspoof installation
 
