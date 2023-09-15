@@ -99,9 +99,10 @@ services:
     container_name: uptime-kuma
     volumes:
       - ./uptime-kuma:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     ports:
       - "3001:3001"
-    restart: always
+    restart: unless-stopped
     networks:
       main:
         ipv4_address: 172.20.2.6
@@ -109,6 +110,7 @@ services:
   watchtower:
     image: containrrr/watchtower
     container_name: watchtower
+    restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
