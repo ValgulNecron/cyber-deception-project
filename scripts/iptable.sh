@@ -15,10 +15,8 @@ for port in $(seq 1 65535); do
 done
 
 # Allow traffic for specific port ranges (15000-15100)
-for port in $(seq 15000 15100); do
-    iptables -t nat -A PREROUTING -p tcp -m tcp --dport $port -j ACCEPT
-    iptables -t nat -A OUTPUT -p tcp -m tcp --dport $port -j ACCEPT
-done
+iptables -t nat -A PREROUTING -p tcp -m tcp --dport 15000:15100 -j ACCEPT
+iptables -t nat -A OUTPUT -p tcp -m tcp --dport 15000:15100 -j ACCEPT
 
 # Display the updated rules
 iptables -t nat -L
