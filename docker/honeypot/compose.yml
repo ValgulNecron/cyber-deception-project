@@ -84,7 +84,8 @@ services:
     #    cpu_count: 1
     #    cpus: 0.75
     networks:
-      - honeypots_local
+      main:
+        ipv4_address: 172.20.1.4
     ports:
       - "21:21"
       - "9822:22"
@@ -113,7 +114,8 @@ services:
       - "11211:11211"
     read_only: true
     volumes:
-      - /data/honeypots/log:/var/log/honeypots
+      - ./data/honeypots/log:/var/log/honeypots
+
 networks:
   main:
     external: true
