@@ -59,7 +59,7 @@ git clone https://github.com/drk1wi/portspoof.git
 yay -Syu portspoof-git
 
 
-don't manage to make it work
+don't manage to make it work cause of the iptables command
 
 iptables -t nat -A PREROUTING -p tcp --dport 1:65535  -j DNAT --to-destination 127.0.0.1:4444 
 please adapt the above command to what you need. 
@@ -67,9 +67,6 @@ don't forget 19, 22, 54, 80, 123, 161, 1901, 2222, 3000, 3001, 5232, 8080, 9443,
 and 21 9822 23 25 53 8008 110 1123 143 1161 389 443 1080 1433 1521 3306 5060 5432 5900 6379 6667 9080 9200 11211 to be open
 + your other service and a ssh port also have the range 15000 to 15100 open for other stuff like game server (15000 to 15010 for mc instance)
 
-I tested doing iptables -t nat -A PREROUTING -p tcp --dport 1:65535  -j DNAT --to-destination 127.0.0.1:4444 with docker and other service where still available
-after running it
-(on localhost)
 
 
 
