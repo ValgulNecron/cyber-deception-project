@@ -12,15 +12,13 @@ json ](https://github.com/DoTheEvo/selfhosted-apps-docker/tree/master/prometheus
 
 
 ### Other:
-
 - [vaultwarden](https://github.com/dani-garcia/vaultwarden): A bitwarden server written in rust (Password manage)
-- [wg-easy](https://github.com/wg-easy/wg-easy): a web interface to manage a wireguard vpn server
-- [lodestrone](https://github.com/Lodestone-Team/lodestone): a minecraft server management software
-- [radicale](https://github.com/Kozea/Radicale): A CalDAV (calendars, to-do lists) and CardDAV (contacts) server
+  - [wg-easy](https://github.com/wg-easy/wg-easy): a web interface to manage a wireguard vpn server
+  - [lodestrone](https://github.com/Lodestone-Team/lodestone): a minecraft server management software
+  - [radicale](https://github.com/Kozea/Radicale): A CalDAV (calendars, to-do lists) and CardDAV (contacts) server
 
 ### Active-defense:
-
-- Need to be intalled on the host system
+  - Need to be intalled on the host system
 
 ### Honeypot:
   - [hellpot](https://github.com/yunginnanet/HellPot): a webserver honey pot
