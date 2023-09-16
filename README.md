@@ -12,7 +12,7 @@ json ](https://github.com/DoTheEvo/selfhosted-apps-docker/tree/master/prometheus
 
 
 ### Other:
-- [vaultwarden](https://github.com/dani-garcia/vaultwarden): A bitwarden server written in rust (Password manage)
+  - [vaultwarden](https://github.com/dani-garcia/vaultwarden): A bitwarden server written in rust (Password manage)
   - [wg-easy](https://github.com/wg-easy/wg-easy): a web interface to manage a wireguard vpn server
   - [lodestrone](https://github.com/Lodestone-Team/lodestone): a minecraft server management software
   - [radicale](https://github.com/Kozea/Radicale): A CalDAV (calendars, to-do lists) and CardDAV (contacts) server
@@ -55,7 +55,7 @@ yay -Syu portspoof-git
 
   iptables -t nat -A PREROUTING -p tcp --dport 1:65535  -j DNAT --to-destination 127.0.0.1:4444 
 please adapt the above command to what you need. 
-don't forget 19, 22, 54, 80, 123, 161, 1901, 3000, 3001, 5232, 8080, 9443, 16662, 51820, 51821 
+don't forget 19, 22, 54, 80, 123, 161, 1901, 3000, 3001, 5232, 8080, 9443, 16662, 51820, 51821, 8009, 8088
 and 21 9822 23 25 53 8008 110 1123 143 1161 389 443 1080 1433 1521 3306 5060 5432 5900 6379 6667 9080 9200 11211 to be open
 + your other service and a ssh port also have the range 15000 to 15100 open for other stuff like game server (15000 to 15010 for mc instance)
 

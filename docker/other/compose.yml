@@ -81,6 +81,23 @@ services:
       main:
         ipv4_address: 172.20.3.4
 
+  nextcloud-aio-mastercontainer:
+    image: nextcloud/all-in-one:latest
+    ports:
+      - "8009:80"
+      - "8088:8080"
+      - "8443:8443"
+    volumes:
+      - nextcloud_aio_mastercontainer:/mnt/docker-aio-config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    restart: always
+    container_name: nextcloud-aio-mastercontainer
+    init: true
+    networks:
+      main:
+        ipv4_address: 172.20.3.5
+
+
 networks:
   main:
     external: true
