@@ -116,7 +116,7 @@ services:
       - "8088:8080"
       - "8443:8443"
     volumes:
-      - nextcloud_aio_mastercontainer:/mnt/docker-aio-config
+      - ./nextcloud_aio_mastercontainer:/mnt/docker-aio-config
       - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: always
     container_name: nextcloud-aio-mastercontainer
@@ -148,10 +148,10 @@ services:
       - database
       - cache
     volumes:
-      - "/srv/pterodactyl/var/:/app/var/"
-      - "/srv/pterodactyl/nginx/:/etc/nginx/http.d/"
-      - "/srv/pterodactyl/certs/:/etc/letsencrypt/"
-      - "/srv/pterodactyl/logs/:/app/storage/logs"
+      - ./srv/pterodactyl/var/:/app/var/
+      - ./srv/pterodactyl/nginx/:/etc/nginx/http.d/
+      - ./srv/pterodactyl/certs/:/etc/letsencrypt/
+      - ./srv/pterodactyl/logs/:/app/storage/logs
     environment:
       <<: *panel-environment
       <<: *mail-environment
