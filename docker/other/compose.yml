@@ -142,8 +142,8 @@ services:
     image: ghcr.io/pterodactyl/panel:latest
     restart: always
     ports:
-      - "80:80"
-      - "443:443"
+      - "880:80"
+      - "4843:443"
     links:
       - database
       - cache
