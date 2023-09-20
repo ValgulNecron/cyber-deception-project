@@ -28,60 +28,6 @@ x-common:
 
 
 services:
-  # A vpn service (wireguard) and a web interface to manage it
-  wg-easy:
-    environment:
-      # ⚠️ Required:
-      # Change this to your host's public address
-      - WG_HOST=raspberrypi.local
-
-      # Optional:
-      # - PASSWORD=foobar123
-      # - WG_PORT=51820
-      # - WG_DEFAULT_ADDRESS=10.8.0.x
-      # - WG_DEFAULT_DNS=1.1.1.1
-      # - WG_MTU=1420
-      # - WG_ALLOWED_IPS=192.168.15.0/24, 10.0.1.0/24
-      # - WG_PRE_UP=echo "Pre Up" > /etc/wireguard/pre-up.txt
-      # - WG_POST_UP=echo "Post Up" > /etc/wireguard/post-up.txt
-      # - WG_PRE_DOWN=echo "Pre Down" > /etc/wireguard/pre-down.txt
-      # - WG_POST_DOWN=echo "Post Down" > /etc/wireguard/post-down.txt
-
-    image: weejewel/wg-easy
-    container_name: wg-easy
-    volumes:
-      - ./wg-easy:/etc/wireguard
-    ports:
-      - "51820:51820/udp"
-      - "51821:51821/tcp"
-    restart: unless-stopped
-    cap_add:
-      - NET_ADMIN
-      - SYS_MODULE
-    sysctls:
-      - net.ipv4.ip_forward=1
-      - net.ipv4.conf.all.src_valid_mark=1
-    networks:
-      main:
-        ipv4_address: 172.20.3.1
-
-  # A password manager (bitwarden) but self-hosted in rust
-  vaultwarden:
-    image: vaultwarden/server:latest
-    container_name: vaultwarden
-    restart: unless-stopped
-    environment:
-      - DOMAIN:"https://vaultwarden.local"  # Your domain; vaultwarden needs to know it's https to work properly with attachments
-      - WEBSOCKET_ENABLED:true
-      - ADMIN_TOKEN:randomPassword40characters
-      - SHOW_PASSWORD_HINT=false
-    volumes:
-      - ./vw-data:/data/
-    ports:
-      - "80:80"
-    networks:
-      main:
-        ipv4_address: 172.20.3.2
 
   # A minecraft server manager (lodestone)
   lodestone:
@@ -90,40 +36,9 @@ services:
     restart: unless-stopped
     ports:
       - "16662:16662"
-    volumes:
-      - ./lodestone:/home/user/.lodestone
-
-  # A CalDav and CardDav server (radicale)
-  radicale:
-    build:
-      context: ../DockerFile/radicale
-      dockerfile: Dockerfile
-    container_name: radicale
-    restart: unless-stopped
-    ports:
-      - "5232:5232"
       - "15000-15010:15000-15010"
     volumes:
-      - ./radicale:/data
-    networks:
-      main:
-        ipv4_address: 172.20.3.4
-
-  nextcloud-aio-mastercontainer:
-    image: nextcloud/all-in-one:latest
-    ports:
-      - "8009:80"
-      - "8088:8080"
-      - "8443:8443"
-    volumes:
-      - ./nextcloud_aio_mastercontainer:/mnt/docker-aio-config
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-    restart: always
-    container_name: nextcloud-aio-mastercontainer
-    init: true
-    networks:
-      main:
-        ipv4_address: 172.20.3.5
+      - ./lodestone:/home/user/.lodestone
 
   database:
     image: mariadb:10.5
