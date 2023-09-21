@@ -84,3 +84,5 @@ services:
 networks:
   main:
     external: true
+    proxy:
+      - "http://10.0.0.1:3128"
