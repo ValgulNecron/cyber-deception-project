@@ -4,7 +4,7 @@ services:
     build:
       context: ../DockerFile/radicale
       dockerfile: Dockerfile
-    container_name: hell_pot
+    container_name: hell_pot.yml
     restart: unless-stopped
     networks:
       main:
