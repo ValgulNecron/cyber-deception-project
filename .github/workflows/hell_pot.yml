@@ -28,4 +28,4 @@ jobs:
           context: ./docker/DockerFile/hell_pot
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: valgul/ddospot:latest
+          tags: valgul/hell_pot:latest
