@@ -1,9 +1,7 @@
 version: '3'
 services:
   hell_pot:
-    build:
-      context: ../DockerFile/radicale
-      dockerfile: Dockerfile
+    image: valgul/hell_pot:latest
     container_name: hell_pot.yml
     restart: unless-stopped
     networks:
@@ -13,9 +11,7 @@ services:
       - "80:8080"
 
   endless_ssh:
-    build:
-      context: ../DockerFile/endlessh
-      dockerfile: Dockerfile
+    image: valgul/endlessh:latest
     container_name: endless_ssh
     restart: unless-stopped
     networks:
@@ -25,10 +21,7 @@ services:
       - "22:2222"
 
   ddospot:
-    build:
-        context: ../DockerFile/ddospot
-        dockerfile: Dockerfile
-    image: aelth/simpledns
+    image: valgul/ddospot:latest
     volumes:
         - ./ddospot/bl:/ddospot/bl
         - ./ddospot/db:/ddospot/db
@@ -60,9 +53,7 @@ services:
             ipv4_address: 172.20.1.3
     # Honeypots service
   honeypots:
-    build:
-      context: ../DockerFile/honeypots
-      dockerfile: Dockerfile
+    image: valgul/honeypots:latest
     container_name: honeypots
     stdin_open: true
     tty: true
