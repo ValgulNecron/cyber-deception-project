@@ -21,9 +21,7 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       - name: List folder contents
-        run: |
-          for file in path/to/your/folder/*; do
-            echo "File: $```
+        run: ls
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
