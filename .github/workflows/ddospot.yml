@@ -23,7 +23,7 @@ jobs:
 
       - name: Build and push
         id: docker_build
-        uses: /cyber-deception-project/docker/build-push-action@v2
+        uses: ./docker/build-push-action@v2
         with:
           context: docker/DockerFile/ddospot
           push: true
