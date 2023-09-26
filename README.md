@@ -28,6 +28,9 @@ json ](https://github.com/DoTheEvo/selfhosted-apps-docker/tree/master/prometheus
   - [ddospot](https://github.com/aelth/ddospot): A DNS server, NTP server, SSDP server, CHARGEN server, Random/mock UDP server
   - [honeypots](https://github.com/qeeqbox/honeypots): 30 different honeypots in one package! (dhcp, dns, elastic, ftp, http proxy, https proxy, http, https, imap, ipp, irc, ldap, memcache, mssql, mysql, ntp, oracle, pjl, pop3, postgres, rdp, redis, sip, smb, smtp, snmp, socks5, ssh, telnet, vnc)
     and the docker file from the [tpotce](https://github.com/telekom-security/tpotce) by [Deutsche Telekom Security GmbH](https://github.com/telekom-security)
+  - [Cowrie](https://github.com/cowrie/cowrie): Cowrie is a medium to high interaction SSH and Telnet honeypot designed to log brute force attacks and the shell interaction performed by the attacker. In medium interaction mode (shell) it emulates a UNIX system in Python, in high interaction mode (proxy) it functions as an SSH and telnet proxy to observe attacker behavior to another system.
+  - [dionaea](https://github.com/DinoTools/dionaea): Dionaea is meant to be a nepenthes successor, embedding python as scripting language, using libemu to detect shellcodes, supporting ipv6 and tls.
+  - [Log4Pot](https://github.com/thomaspatzke/Log4Pot): A honeypot for the Log4Shell vulnerability (CVE-2021-44228).
 
 ### Management:
   - [Grafana](https://grafana.com/), [prometheus](https://github.com/prometheus/prometheus),
