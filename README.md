@@ -16,7 +16,10 @@ json ](https://github.com/DoTheEvo/selfhosted-apps-docker/tree/master/prometheus
   - [pterodactyl](https://pterodactyl.io/): a server manager
 
 ### Active-defense:
-  - Need to be intalled on the host system
+  - [portspoof](https://github.com/drk1wi/portspoof): Need to be intalled on the host 
+  - [p0f](https://lcamtuf.coredump.cx/p0f3/): P0f is a tool that utilizes an array of sophisticated, purely passive traffic fingerprinting mechanisms to identify the players behind any incidental TCP/IP communications (often as little as a single normal SYN) without interfering in any way.
+  - [Cockpit](https://cockpit-project.org/running): The easy-to-use, integrated, glanceable, and open web-based interface for your servers
+  - [SpiderFoot](https://github.com/smicallef/spiderfoot): SpiderFoot automates OSINT for threat intelligence and mapping your attack surface.
 
 ### Honeypot:
   - [hellpot](https://github.com/yunginnanet/HellPot): a webserver honey pot

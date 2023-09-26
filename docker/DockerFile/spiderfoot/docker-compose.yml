@@ -1,0 +1,21 @@
+version: '2.3'
+
+networks:
+  spiderfoot_local:
+
+services:
+
+# Spiderfoot service
+  spiderfoot:
+    build: .
+    container_name: spiderfoot
+    restart: always
+#    cpu_count: 1
+#    cpus: 0.75
+    networks:
+     - spiderfoot_local
+    ports:
+     - "127.0.0.1:64303:8080"
+    image: "dtagdevsec/spiderfoot:2204"
+    volumes:
+     - /data/spiderfoot:/home/spiderfoot/.spiderfoot

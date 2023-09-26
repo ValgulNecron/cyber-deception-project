@@ -175,6 +175,17 @@ services:
     volumes:
       - ./log4pot/log:/var/log/log4pot/log
       - ./log4pot/payloads:/var/log/log4pot/payloads
+
+  p0f:
+    image: valgul/p0f:latest
+    container_name: p0f
+    restart: always
+    #    cpu_count: 1
+    #    cpus: 0.75
+    network_mode: "host"
+    read_only: true
+    volumes:
+      - /data/p0f/log:/var/log/p0f
 networks:
   main:
     external: true
