@@ -51,13 +51,14 @@ services:
     networks:
         main:
             ipv4_address: 172.20.1.3
+    restart: unless-stopped
     # Honeypots service
   honeypots:
     image: valgul/honeypots:latest
     container_name: honeypots
     stdin_open: true
     tty: true
-    restart: always
+    restart: unless-stopped
     tmpfs:
       - /tmp:uid=2000,gid=2000
     #    cpu_count: 1
@@ -93,8 +94,87 @@ services:
       - "11211:11211"
     read_only: true
     volumes:
-      - ./data/honeypots/log:/var/log/honeypots
+      - ./honeypots/log:/var/log/honeypots
 
+  cowrie:
+    image: valgul/cowrie:latest
+    container_name: cowrie
+    restart: unless-stopped
+    tmpfs:
+      - /tmp/cowrie:uid=2000,gid=2000
+      - /tmp/cowrie/data:uid=2000,gid=2000
+    #    cpu_count: 1
+    #    cpus: 0.25
+    networks:
+      main:
+        ipv4_address: 172.20.1.5
+    ports:
+      - "222:22"
+      - "223:23"
+    read_only: true
+    volumes:
+      - ./cowrie/downloads:/home/cowrie/cowrie/dl
+      - ./cowrie/keys:/home/cowrie/cowrie/etc
+      - ./cowrie/log:/home/cowrie/cowrie/log
+      - ./cowrie/log/tty:/home/cowrie/cowrie/log/tty
+
+  dionaea:
+    image: valgul/dionaea:latest
+    container_name: dionaea
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    #    cpu_count: 1
+    #    cpus: 0.25
+    networks:
+      main:
+        ipv4_address: 172.20.1.6
+    ports:
+      - "20:20"
+      - "221:21"
+      - "42:42"
+      - "69:69/udp"
+      - "81:81"
+      - "135:135"
+      - "5443:443"
+      - "5445:445"
+      - "12433:1433"
+      - "1723:1723"
+      - "1883:1883"
+      - "3307:3306"
+      - "27017:27017"
+    read_only: true
+    volumes:
+      - ./dionaea/roots/ftp:/opt/dionaea/var/dionaea/roots/ftp
+      - ./dionaea/roots/tftp:/opt/dionaea/var/dionaea/roots/tftp
+      - ./dionaea/roots/www:/opt/dionaea/var/dionaea/roots/www
+      - ./dionaea/roots/upnp:/opt/dionaea/var/dionaea/roots/upnp
+      - ./dionaea:/opt/dionaea/var/dionaea
+      - ./dionaea/binaries:/opt/dionaea/var/dionaea/binaries
+      - ./dionaea/log:/opt/dionaea/var/log
+      - ./dionaea/rtp:/opt/dionaea/var/dionaea/rtp
+
+  log4pot:
+    image: valgul/log4pot:latest
+    container_name: log4pot
+    restart: unless-stopped
+    tmpfs:
+      - /tmp:uid=2000,gid=2000
+    #    cpu_count: 1
+    #    cpus: 0.25
+    networks:
+      main:
+        ipv4_address: 172.20.1.7
+    ports:
+      - "8000:8080"
+      - "4543:8080"
+      - "8080:8080"
+      - "19200:8080"
+      - "25565:8080"
+    read_only: true
+    volumes:
+      - ./log4pot/log:/var/log/log4pot/log
+      - ./log4pot/payloads:/var/log/log4pot/payloads
 networks:
   main:
     external: true
