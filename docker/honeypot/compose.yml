@@ -185,7 +185,21 @@ services:
     network_mode: "host"
     read_only: true
     volumes:
-      - /data/p0f/log:/var/log/p0f
+      - ./p0f/log:/var/log/p0f
+
+  spiderfoot:
+    image: valgul/spiderfoot:latest
+    container_name: spiderfoot
+    restart: always
+    #    cpu_count: 1
+    #    cpus: 0.75
+    networks:
+      - spiderfoot_local
+    ports:
+      - "64303:8080"
+    volumes:
+      - ./spiderfoot:/home/spiderfoot/.spiderfoot
+
 networks:
   main:
     external: true
