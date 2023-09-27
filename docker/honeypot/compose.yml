@@ -18,7 +18,7 @@ services:
       main:
         ipv4_address: 172.20.1.2
     ports:
-      - "22:2222"
+      - "422:2222"
 
   ddospot:
     image: valgul/ddospot:latest
