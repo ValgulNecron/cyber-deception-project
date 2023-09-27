@@ -194,7 +194,8 @@ services:
     #    cpu_count: 1
     #    cpus: 0.75
     networks:
-      - spiderfoot_local
+      main:
+        ipv4_address: 172.20.1.8
     ports:
       - "64303:8080"
     volumes:
