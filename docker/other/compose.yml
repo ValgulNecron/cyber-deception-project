@@ -39,6 +39,9 @@ services:
       - "15000-15010:15000-15010"
     volumes:
       - ./lodestone:/home/user/.lodestone
+    networks:
+      main:
+        ipv4_address: 172.20.4.1
 
   database:
     image: mariadb:10.5
@@ -51,10 +54,16 @@ services:
       <<: *db-environment
       MYSQL_DATABASE: "panel"
       MYSQL_USER: "pterodactyl"
+    networks:
+      main:
+        ipv4_address: 172.20.4.2
   cache:
     image: redis:alpine
     container_name: pterodactyl_cache
     restart: unless-stopped
+    networks:
+      main:
+        ipv4_address: 172.20.4.3
   panel:
     container_name: pterodactyl_panel
     image: ghcr.io/pterodactyl/panel:latest
@@ -81,6 +90,9 @@ services:
       REDIS_HOST: "cache"
       DB_HOST: "database"
       DB_PORT: "3306"
+    networks:
+      main:
+        ipv4_address: 172.20.4.4
 networks:
   main:
     external: true
