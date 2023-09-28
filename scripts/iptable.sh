@@ -14,6 +14,7 @@ for i in $(seq 1 65535); do
   echo "doing it"
   iptables -t nat -A PREROUTING -p tcp --dport $i  -j DNAT --to-destination 127.0.0.1:4444
   iptables -t nat -A OUTPUT -p tcp --dport $i  -j DNAT --to-destination 127.0.0.1:4444
+  iptables-save
 done
 # Save the rules
 iptables-save
