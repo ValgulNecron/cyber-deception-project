@@ -18,7 +18,7 @@ services:
       main:
         ipv4_address: 172.20.1.2
     ports:
-      - "22:2222"
+      - "422:2222"
 
   ddospot:
     image: valgul/ddospot:latest
@@ -71,7 +71,7 @@ services:
       - "9822:22"
       - "23:23"
       - "25:25"
-      - "53:53/udp"
+      - "853:53/udp"
       - "8008:80"
       - "110:110"
       - "1123:123"
@@ -175,6 +175,7 @@ services:
     volumes:
       - ./log4pot/log:/var/log/log4pot/log
       - ./log4pot/payloads:/var/log/log4pot/payloads
+
 networks:
   main:
     external: true

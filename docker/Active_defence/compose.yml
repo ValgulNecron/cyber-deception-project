@@ -1,0 +1,19 @@
+version: '3'
+services:
+  spiderfoot:
+    image: valgul/spiderfoot:latest
+    container_name: spiderfoot
+    restart: always
+    #    cpu_count: 1
+    #    cpus: 0.75
+    networks:
+      main:
+        ipv4_address: 172.20.3.1
+    ports:
+      - "64303:8080"
+    volumes:
+      - ./spiderfoot:/home/spiderfoot/.spiderfoot
+
+networks:
+  main:
+    external: true
