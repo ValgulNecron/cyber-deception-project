@@ -1,22 +1,19 @@
 #!/bin/bash
 
-# Clear existing rules
+# Flush all existing nat rules
 iptables -t nat -F
 
-# Define a list of ports to exclude
-excluded_ports="19,22,54,80,123,161,1901,3000,3001,5232,8080,9443,16662,51820,51821,21,9822,23,25,53,8008,110,1123,143,1161,389,443,1080,1433,1521,3306,5060,5432,5900,6379,6667,9080,9200,11211"
+# Redirect all incoming and outgoing TCP traffic on ports 1 through 65535 to localhost:4444, except for the following ports and ports 15000 to 15100:
+iptables -t nat -A PREROUTING -p tcp --dport 1:65535 -j DNAT --to-destination 127.0.0.1:4444
+iptables -t nat -A OUTPUT -p tcp --dport 1:65535 -j DNAT --to-destination 127.0.0.1:4444
 
-# Loop through ports 1-65535 and add DNAT rules for ports not in the exclusion list
-for port in $(seq 1 65535); do
-    if [[ ! $excluded_ports =~ $port ]]; then
-        iptables -t nat -A PREROUTING -p tcp -m tcp --dport $port -j DNAT --to-destination 127.0.0.1:4444
-        iptables -t nat -A OUTPUT -p tcp -m tcp --dport $port -j DNAT --to-destination 127.0.0.1:4444
-    fi
-done
+# Exempt the following ports from the redirection:
+iptables -t nat -A PREROUTING -p tcp --dport 20,21,22,23,25,42,53,69,80,81,110,135,143,221,222,223,389,443,445,880,1080,1123,1161,1433,1521,1723,1883,3000,3001,3306,3307,4543,4843,5060,5432,5443,5445,5900,6379,6667,8000,8008,8080,9080,9200,9443,9822,11211,12433,16662,19200,25565,27017 -j ACCEPT
+iptables -t nat -A OUTPUT -p tcp --dport 20,21,22,23,25,42,53,69,80,81,110,135,143,221,222,223,389,443,445,880,1080,1123,1161,1433,1521,1723,1883,3000,3001,3306,3307,4543,4843,5060,5432,5443,5445,5900,6379,6667,8000,8008,8080,9080,9200,9443,9822,11211,12433,16662,19200,25565,27017 -j ACCEPT
 
-# Allow traffic for specific port ranges (15000-15100)
-iptables -t nat -A PREROUTING -p tcp -m tcp --dport 15000:15100 -j ACCEPT
-iptables -t nat -A OUTPUT -p tcp -m tcp --dport 15000:15100 -j ACCEPT
+# Exempt ports 15000 to 15100 from the redirection:
+iptables -t nat -A PREROUTING -p tcp --dport 15000:15100 -j ACCEPT
+iptables -t nat -A OUTPUT -p tcp --dport 15000:15100 -j ACCEPT
 
-# Display the updated rules
-iptables -t nat -L
+# Save the rules
+iptables-save
