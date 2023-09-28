@@ -12,9 +12,9 @@ for i in $(seq 1 65535); do
     continue
   fi
   echo "doing it"
-  iptables -t nat -A PREROUTING -p tcp --dport $i  -j DNAT --to-destination 127.0.0.1:4444
-  iptables -t nat -A OUTPUT -p tcp --dport $i  -j DNAT --to-destination 127.0.0.1:4444
-  iptables-save
+  sudo iptables -t nat -A PREROUTING -p tcp --dport $i -j DNAT --to-destination 127.0.0.1:4444
+  sudo iptables -t nat -A OUTPUT -p tcp --dport $i -j DNAT --to-destination 127.0.0.1:4444
+  sudo iptables-save
 done
 # Save the rules
-iptables-save
+sudo iptables-save
