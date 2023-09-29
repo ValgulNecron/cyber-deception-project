@@ -6,7 +6,6 @@ echo $ports_list
 sleep 2s
 for i in ${ports_list[@]}; do
   echo $i
-  sleep 1s
   if [ $i -ge 15000 ] && [ $i -le 15100 ]; then
     echo "port between 15000 and 15100"
     sleep 1s
