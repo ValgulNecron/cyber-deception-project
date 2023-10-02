@@ -18,6 +18,7 @@ for i in ${ports_list[@]}; do
   sudo iptables -t nat -A OUTPUT -p tcp --dport $i -j DNAT --to-destination 127.0.0.1:4444
   sudo iptables-save
   echo $i
+  sleep 0.1s
 done
 # Save the rules
 sudo iptables-save
