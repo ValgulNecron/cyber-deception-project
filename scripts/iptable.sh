@@ -16,7 +16,7 @@ for i in ${ports_list[@]}; do
   echo "doing it"
   sudo iptables -t nat -A PREROUTING -p tcp --dport $i -j DNAT --to-destination 127.0.0.1:4444
   sudo iptables -t nat -A OUTPUT -p tcp --dport $i -j DNAT --to-destination 127.0.0.1:4444
-  sudo iptables-save > /dev/null
+  sudo iptables-save
   echo $i
 done
 # Save the rules
