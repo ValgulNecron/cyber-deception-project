@@ -28,4 +28,4 @@ jobs:
           context: ./docker/DockerFile/endlessh
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: valgul/endlessh:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/endlessh:latest
