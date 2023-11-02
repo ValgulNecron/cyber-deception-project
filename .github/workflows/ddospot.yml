@@ -28,4 +28,4 @@ jobs:
           context: ./docker/DockerFile/ddospot
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: valgul/ddospot:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/ddospot:latest
