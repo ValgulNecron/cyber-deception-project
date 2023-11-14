@@ -6,6 +6,10 @@ on:
       - master
   workflow_dispatch:
 
+concurrency:
+  group: "honeypots"
+  cancel-in-progress: false
+
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -29,3 +33,5 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/honeypots:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
