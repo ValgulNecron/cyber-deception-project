@@ -38,7 +38,6 @@ json ](https://github.com/DoTheEvo/selfhosted-apps-docker/tree/master/prometheus
     [nodeexporter](https://github.com/prometheus/node_exporter), [cadvisor](https://github.com/google/cadvisor): A set of
     tool that give you information on your server on a dashboard.
   - [Portainer](https://www.portainer.io/): a docker web management tool
-  - [uptime kuma](https://github.com/louislam/uptime-kuma): Uptime Kuma is an easy-to-use self-hosted monitoring tool.
   - [Watchtower](https://containrrr.dev/watchtower/): A container-based solution for automating Docker container base image updates.
 
 # Portspoof installation
