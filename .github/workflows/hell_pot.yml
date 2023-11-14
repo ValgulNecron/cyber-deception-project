@@ -5,6 +5,10 @@ on:
     branches:
       - master
   workflow_dispatch:
+  
+concurrency:
+  group: "hell_pot"
+  cancel-in-progress: false
 
 jobs:
   docker:
